@@ -7,11 +7,12 @@ def recipe_batches(recipe, ingredients):
   batches = []
   # loop through the recipe dictionary and determine how many batches can me made
   for k in recipe:
-  # store the rounded down values in created array, find the min value and return it
+  # store the rounded down values in created array
     try:
       batches.append(ingredients[k] // recipe[k])
     except:
       batches.append(0)
+  # find the min value and return it
   return min(batches)
 
 recipe = { 'milk': 100, 'butter': 50, 'flour': 5 }

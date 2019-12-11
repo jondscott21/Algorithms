@@ -5,12 +5,24 @@ import sys
 # The cache parameter is here for if you want to implement
 # a solution that is more efficient than the naive 
 # recursive solution
-def eating_cookies(n, cache=None):
-  pass
+def eating_cookies(n, cache={}):
+  if n == 0: return 1
+  else :
+    if n <= 2:
+      return n
+    if n not in cache:
+      # print(eating_cookies(n-1), eating_cookies(n-2), eating_cookies(n-3))
+      cache[n] = eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
+      # c1 c2 c3
+      #  2  1  1 
+      #  1  0  0
+    print(cache[n])
+    return cache[n]
+eating_cookies(7)
 
-if __name__ == "__main__":
-  if len(sys.argv) > 1:
-    num_cookies = int(sys.argv[1])
-    print("There are {ways} ways for Cookie Monster to eat {n} cookies.".format(ways=eating_cookies(num_cookies), n=num_cookies))
-  else:
-    print('Usage: eating_cookies.py [num_cookies]')
+# if __name__ == "__main__":
+#   if len(sys.argv) > 1:
+#     num_cookies = int(sys.argv[1])
+#     print("There are {ways} ways for Cookie Monster to eat {n} cookies.".format(ways=eating_cookies(num_cookies), n=num_cookies))
+#   else:
+#     print('Usage: eating_cookies.py [num_cookies]')
