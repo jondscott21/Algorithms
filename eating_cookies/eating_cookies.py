@@ -8,17 +8,11 @@ import sys
 def eating_cookies(n, cache={}):
   if n == 0: return 1
   else :
-    if n <= 2:
-      return n
+    if n <= 2: return n
     if n not in cache:
-      # print(eating_cookies(n-1), eating_cookies(n-2), eating_cookies(n-3))
       cache[n] = eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
-      # c1 c2 c3
-      #  2  1  1 
-      #  1  0  0
-    print(cache[n])
     return cache[n]
-eating_cookies(7)
+eating_cookies(4)
 
 # if __name__ == "__main__":
 #   if len(sys.argv) > 1:
